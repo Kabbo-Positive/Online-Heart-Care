@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% block content %}
+
+
+
+<br>
+<div class="wrapper ">
+  <div id="formContent">
+    <!-- Tabs Titles -->
+    <!-- Icon -->
+    <br>
+    <div class=" first">
+      <h1>Login</h1>
+    </div>
+
+    <!-- Login Form -->
+
+    <form action="login" method="POST">
+      {% csrf_token %}
+
+
+
+      <input type="text" name="username" placeholder="Username">
+      <input type="password" name="password" placeholder="Password">
+      <input type="submit" class=" fourth btn btn-primary" value="Login">
+    </form><br>
+    <div>
+        {% for message in messages %}
+        <div>
+          <h6 style="color: red;">{{message}}</h6>            
+        </div>
+        
+        {% endfor %}
+    </div>
+
+
+    <!-- Remind Passowrd -->
+    <div id="formFooter">
+      <a class="underlineHover" href=" {% url 'registration' %}">Create a account</a>
+    </div>
+
+  </div>
+</div>
+
+
+
+
+{% endblock %}
